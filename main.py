@@ -13,6 +13,9 @@ from llama_index.llms import OpenAI
 from pydantic import BaseModel
 from qdrant_client.http.exceptions import UnexpectedResponse
 
+from traceloop.sdk import Traceloop
+Traceloop.init(disable_batch=True)
+
 logging.basicConfig(stream=sys.stdout, level="DEBUG")
 
 app = FastAPI()
@@ -32,7 +35,7 @@ async def query(temperature: float = 0.0,
                                            query: str):
         response = await chat_engine.astream_chat(message=query)
     
-        for token in response.response_gen:
+        async for token in response.async_response_gen():
             logging.debug(f"Token: {token}")
             yield json.dumps(token)[1:-1]
 

@@ -5,13 +5,14 @@ name = "pypi"
 
 [packages]
 fastapi = "0.103.1"
-llama-index = "0.7.24.post1" # if you change this to 0.7.23 it will work
-langchain = "0.0.292"
+llama-index = "0.9.10"
+langchain = "0.0.342"
 pydantic = "~=1.10"
 python-dotenv = "~=1.0"
 python-multipart = "~=0.0"
 gunicorn = "~=20.1"
 uvicorn = "~=0.22"
+traceloop-sdk = "*"
 
 [dev-packages]
 uvicorn = {extras = ["standard"], version = "~=0.22"}
