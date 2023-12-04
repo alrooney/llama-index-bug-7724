@@ -5,4 +5,5 @@ To run the reproduction scenario you will need to do the following (note: these 
 3. Install all dependencies by running ```pipenv install --dev```
 4. Copy .env.development to .env.development.local and fill in the required env vars
 5. To run the fastapi server do ```pipenv run uvicorn main:app --reload --env-file .env.development.local```
+6. In another terminal window run ```curl localhost:8000/query```
    
